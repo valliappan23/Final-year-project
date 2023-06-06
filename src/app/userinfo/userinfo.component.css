@@ -1,0 +1,56 @@
+.details{
+    left: 300px;
+}
+.m1{
+    left: 175px;
+}
+.m2{
+    left: 175px;
+}
+
+#name{
+    font-size:x-large;
+    text-transform: uppercase;
+}
+#designation{
+    font-size:110%;
+    text-transform: uppercase;
+}
+#branch{
+    font-size:100%;
+    text-transform: uppercase;
+}
+#field{
+    font-size: medium;
+    color: blue;
+    font-family: inherit;
+    font-style: unset;
+}
+#head{
+    font-size: x-large;
+    color: red;
+}
+li{
+    list-style: none;
+}
+#b1{
+    color: red;
+}
+.menu{
+    cursor:text;
+    color:black;
+    position:relative;
+    z-index: 1;
+    padding-top: 7px;
+}
+.btn{
+    border:1px solid black;
+    position:static;
+    margin-bottom: 20px;
+    
+}
+.sal{
+    position:absolute;
+    right: 30px;
+    top: 432px;
+}

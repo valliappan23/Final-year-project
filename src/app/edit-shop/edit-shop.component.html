@@ -1,0 +1,140 @@
+<!-- <p>add-store works!</p> -->
+
+<app-menu></app-menu>
+
+<div class="container">
+    <div class="title">New Store</div>
+    <span class="msg">{{msg}}</span>
+    <div class="content">
+      <form action="#" #f="ngForm" (submit)="DoEditShop(f)" *ngIf="shopData">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Store Name</span>
+            <input type="text" placeholder="Enter store name" class="form-control" required name="sname" [ngModel]="shopData.sname" pattern="[a-z A-z]*" #shopname="ngModel" autocomplete="off">
+            <small class="text-danger" *ngIf="shopname.errors?.['required']&& shopname.touched">please enter shop name</small>
+            <small class="text-danger"*ngIf="shopname.errors?.['pattern']">Please enter valid shop name</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Store Key <small class="text-danger msg1">{{msg1}}</small></span>
+            <input type="text" placeholder="Enter store Id" class="form-control" required name="sid" disabled [ngModel]="shopData.sid" #shopid="ngModel" (blur)="checkID(shopid.value)" autocomplete="off">
+            <small class="text-danger" *ngIf="shopid.errors?.['required']&& shopid.touched">please enter shop id</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" placeholder="Enter store address" class="form-control" required name="saddr" [ngModel]="shopData.saddr" #shopaddr="ngModel" autocomplete="off">
+            <small class="text-danger" *ngIf="shopaddr.errors?.['required']&& shopaddr.touched">please enter shop id</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Phone number</span>
+            <input type="text" placeholder="Enter store phone number" class="form-control" required name="sphone" [ngModel]="shopData.sphone" #shopphone="ngModel" pattern="^[6-9][0-9]{9}" autocomplete="off">
+            <small class="text-danger" *ngIf="shopphone.errors?.['required']&& shopphone.touched">please enter phone number</small>
+            <small class="text-danger"*ngIf="shopphone.errors?.['pattern']">Please enter valid phone number</small>
+          </div>
+
+          <!-- <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter store email" class="form-control" required name="semail" ngModel #shopmail="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="off">
+
+            <small class="text-danger" *ngIf="shopmail.errors?.['required']&& shopmail.touched">please enter shop mail</small>
+            <small class="text-danger"*ngIf="shopmail.errors?.['pattern']">Please enter valid shop mail</small>
+          </div> -->
+
+
+          <div class="input-box">
+            <span class="details">Store Type <small class="mess text-danger">Supermarket / Clothes / Spares</small></span>
+            <!-- <span class="text text-success">Supermarket / Clothes / Spares</span> -->
+            <input type="text" placeholder="Enter store type" class="form-control" required name="stype" [ngModel]="shopData.stype" #shoptype="ngModel" pattern="[A-Z]*" autocomplete="off">
+
+            <small class="text-danger" *ngIf="shoptype.errors?.['required']&& shoptype.touched">please enter store type</small>
+            <small class="text-danger"*ngIf="shoptype.errors?.['pattern']">Please use only capital letters</small>
+          </div>
+
+
+
+          <div class="input-box">
+            <span class="details">Ownership Detail <small class="mess text-danger">Single / Partnership</small></span>
+            <!-- <span class="text text-success">Single / Partnership</span> -->
+            <input type="text" placeholder="Enter store ownership" class="form-control" required name="sownership" [ngModel]="shopData.sownership" #shopownership="ngModel" pattern="[a-zA-z ]*" autocomplete="off">
+
+            <small class="text-danger" *ngIf="shopownership.errors?.['required']&& shopownership.touched">please enter ownership type of store</small>
+            <small class="text-danger"*ngIf="shopownership.errors?.['pattern']">Please enter valid ownership detail</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter store email" class="form-control" required name="semail" [ngModel]="shopData.semail" #shopmail="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="off">
+
+            <small class="text-danger" *ngIf="shopmail.errors?.['required']&& shopmail.touched">please enter shop mail</small>
+            <small class="text-danger"*ngIf="shopmail.errors?.['pattern']">Please enter valid shop mail</small>
+          </div>
+
+
+
+          <div class="input-box">
+            <span class="details">Pan Number <small class="mess text-danger">Use Only capital letters</small></span>
+            <input type="text" placeholder="Enter store pan number" class="form-control" required name="span" [ngModel]="shopData.span" #shoppan="ngModel" pattern="^[A-Z]*[0-9]*[A-Z]" autocomplete="off">
+
+            <small class="text-danger" *ngIf="shoppan.errors?.['required']&& shoppan.touched">please enter shop pan</small>
+            <small class="text-danger"*ngIf="shoppan.errors?.['pattern']">Please use capital letters and numbers</small>
+          </div>
+          
+
+        </div>
+
+
+        <!--  -->
+
+
+        
+
+
+        <!-- <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" class="form-control" >
+          <input type="radio" name="gender" id="dot-2" class="form-control" >
+          <input type="radio" name="gender" id="dot-3" class="form-control" >
+          <span class="gender-title">Ownership Details</span>
+          <div cla<div class="employee-details">
+          <input type="radio" name="employee" id="dot-1a" class="form-control" >
+          <input type="radio" name="employee" id="dot-2a" class="form-control" >
+          <input type="radio" name="employee" id="dot-3a" class="form-control" >
+          <span class="emplpoyee-title">Store Detail</span>
+          <div class="category">
+            <label for="dot-1a">
+            <span class="dot one"></span>
+            <span class="employee">Super Market</span>
+          </label>
+          <label for="dot-2a">
+            <span class="dot two"></span>
+            <span class="employee">Clothes</span>
+          </label>
+          <label for="dot-3a">
+            <span class="dot three"></span>
+            <span class="employee">Spares</span>
+            </label>
+          </div>
+        </div>ss="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Single</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Partnership</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div> -->
+        <div class="button">
+          <input type="submit" value="Update" [disabled]="f.invalid && !storeIdAvailable">
+          <!-- <input type="submit" value="Update" [disabled]="f.invalid"> -->
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,87 @@
+<!-- <p>product works!</p> -->
+<app-menu></app-menu>
+<div class="container">
+    <div class="title">Add Product Registration</div>
+    <span class="msg">{{msg}}</span>
+    <span class="msg1">{{msg1}}</span>
+    <div class="content">
+      <form action="#" #f="ngForm" (submit)="DoProductRegister(f)">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Product Name</span>
+            <input type="text" placeholder="Enter product name" required name="pname" class="form-control" ngModel #productname="ngModel" pattern="^[a-zA-Z][a-zA-Z 0-9 a-zA-Z]*"autocomplete="off">
+            <small class="text-danger" *ngIf="productname.errors?.['required']&& productname.touched">please enter product name</small>
+            <small class="text-danger"*ngIf="productname.errors?.['pattern']">Please enter valid product name</small>
+            <!-- {{productname.errors | json}} -->
+          </div>
+          <div class="input-box">
+            <span class="details">Product Id<small class="text-danger"> Shop Key With Number Use Capital Letters for Key</small></span>
+            <input type="text" placeholder="Enter Product Id" required name="pid" class="form-control" ngModel #productid="ngModel" autocomplete="off" pattern="^[A-Z]{3}[0-9]*" (blur)="checkProdIdAvail(productid.value)">
+            <small class="text-danger" *ngIf="productid.errors?.['required']&& productid.touched">please enter product id</small>
+            <small class="text-danger"*ngIf="productid.errors?.['pattern']">Please enter valid product id Use capital letters only </small>
+          </div>
+          <div class="input-box">
+            <span class="details">Quantity</span>
+            <input type="text" placeholder="Enter quantity" required name="pqty" class="form-control" ngModel #productqty="ngModel" pattern="^[0-9][0-9]*.[0-9][0-9]" autocomplete="off">
+            <small class="text-danger" *ngIf="productqty.errors?.['required']&& productqty.touched">please enter product quantity</small>
+            <small class="text-danger"*ngIf="productqty.errors?.['pattern']">Please enter valid quantity EXAMPLE: 500.00 </small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Bought price of per quantity</span>
+            <input type="text" placeholder="Enter bought price" required name="pprice" class="form-control" ngModel #productprice="ngModel" pattern="^[0-9][0-9]*.[0-9][0-9]" autocomplete="off">
+            <small class="text-danger" *ngIf="productprice.errors?.['required']&& productprice.touched">please enter price of buying product </small>
+            <small class="text-danger"*ngIf="productprice.errors?.['pattern']">Please enter valid bought price EXAMPLE: 500.00 </small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Selling Price of per quantity</span>
+            <input type="text" placeholder="Enter selling price" required name="pselling" class="form-control" ngModel #productselling="ngModel"pattern="^[0-9][0-9.]*[0-9][0-9]" autocomplete="off">
+            <small class="text-danger" *ngIf="productselling.errors?.['required']&& productselling.touched">please enter selling price</small>
+            <small class="text-danger"*ngIf="productselling.errors?.['pattern']">Please enter valid selling price</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Our Company</span>
+            <input type="text" placeholder="Enter Company Name" required name="pc" class="form-control" ngModel #pc="ngModel" pattern="^[a-z A-Z][a-z A-Z]*" autocomplete="off">
+            <small class="text-danger" *ngIf="pc.errors?.['required']&& pc.touched">please enter our company name</small>
+            <small class="text-danger"*ngIf="pc.errors?.['pattern']">Please enter valid company name</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Product Bought From</span>
+            <input type="text" placeholder="Enter buying company" required name="pbuying" class="form-control" ngModel #productbought="ngModel" pattern="^[a-z A-Z][a-z A-Z]*" autocomplete="off">
+            <small class="text-danger" *ngIf="productbought.errors?.['required']&& productbought.touched">please enter supplier company name</small>
+            <small class="text-danger"*ngIf="productbought.errors?.['pattern']">Please enter valid company name</small>
+          </div>
+
+          
+
+          <div class="input-box">
+            <span class="details">Date Of Purchase</span>
+            <input type="text" placeholder="DD/MM/YYYY" required name="pdob" class="form-control" ngModel #productdob="ngModel" pattern="^[0-9]{2}[/][0-1][0-9][/][0-9]{4}" autocomplete="off">
+            <small class="text-danger" *ngIf="productdob.errors?.['required']&& productdob.touched">please enter date of purchase</small>
+            <small class="text-danger"*ngIf="productdob.errors?.['pattern']">Please enter valid date</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Bill No</span>
+            <input type="text" placeholder="Enter bill no" required name="pbill" class="form-control" ngModel #productbill="ngModel" autocomplete="off">
+            <small class="text-danger" *ngIf="productbill.errors?.['required']&& productbill.touched">please enter purchase bill no</small>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter company phone number" required name="pphone" class="form-control" ngModel #productphone="ngModel">
+            <p class="text-danger" *ngIf="productphone.errors?.['required']&& productphone.touched">please enter contact number of purchase company</p>
+          </div> -->
+          
+        </div>
+
+        
+        <div class="button">
+          <input type="submit" value="Register"  [disabled]="f.invalid">
+        </div>
+      </form>
+    </div>
+  </div>

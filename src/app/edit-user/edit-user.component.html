@@ -1,0 +1,117 @@
+
+<app-menu></app-menu>
+
+
+<div class="container">
+    <div class="title">Edit User Registration</div>
+    <span class="msg">{{msg}}</span>
+    <div class="content">
+      <form action="#" #f="ngForm" (submit)="DoEditUser(f)" *ngIf="userData">
+        <div class="user-details">
+          <div class="input-box">
+            <p class="details">Employee Name</p>
+            <input type="text" placeholder="Enter employee name"name="uname" class="form-control" [ngModel]="userData.uname" required #username="ngModel" pattern="[a-zA-z ]*.[a-zA-z]*" autocomplete="off">
+            <small class="text-danger" *ngIf="username.errors?.['required']&& username.touched">please enter employee name</small>
+            <small class="text-danger"*ngIf="username.errors?.['pattern']">Please enter valid name</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Company Name</span>
+            <input type="text" placeholder="Enter employee name"name="cname" class="form-control" [ngModel]="userData.cname" required #usercomp="ngModel" pattern="[a-zA-z ]*" autocomplete="off">
+            <small class="text-danger" *ngIf="usercomp.errors?.['required']&& usercomp.touched">please enter Company name</small>
+            <small class="text-danger"*ngIf="usercomp.errors?.['pattern']">Please enter valid name</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" placeholder="Enter employee address"  name="uaddr" class="form-control" [ngModel]="userData.uaddr" #useraddr="ngModel" required autocomplete="off">
+            <small class="text-danger" *ngIf="useraddr.errors?.['required']&& useraddr.touched">please enter employee address</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Employee Id <small class="text-danger msg1">{{msg1}}</small></span>
+            <input type="text" placeholder="Enter Employee Id"  name="uid" class="form-control" disabled [ngModel]="userData.uid" #userid="ngModel" required autocomplete="off" (blur)="checkID(userid.value)">
+            <small class="text-danger" *ngIf="userid.errors?.['required']&& userid.touched">please enter employee id</small>
+          </div>
+
+          
+
+          <div class="input-box">
+            <span class="details">Date Of Birth</span>
+            <input type="text" placeholder="DD/MM/YYYY"  name="udob" class="form-control" [ngModel]="userData.udob" #userdob="ngModel" required pattern="^[0-9]{2}[/][0-1][0-9][/][0-9]{4}" autocomplete="off">
+            <small class="text-danger" *ngIf="userdob.errors?.['required']&& userdob.touched">please enter date of birth</small>
+            <small class="text-danger"*ngIf="userdob.errors?.['pattern']">Please enter valid date</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Date Of Joining</span>
+            <input type="text" placeholder="DD/MM/YYYY"  name="udoj" class="form-control" [ngModel]="userData.udoj" #userdoj="ngModel" required pattern="^[0-9]{2}[/][0-1][0-9][/][0-9]{4}" autocomplete="off">
+            <small class="text-danger" *ngIf="userdoj.errors?.['required']&& userdoj.touched">please enter date of joining</small>
+            <small class="text-danger"*ngIf="userdoj.errors?.['pattern']">Please enter valid date</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter employee email"  name="uemail" class="form-control" [ngModel]="userData.uemail" #useremail="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" autocomplete="off">
+            <small class="text-danger" *ngIf="useremail.errors?.['required']&& useremail.touched">please enter employee mail</small>
+            <small class="text-danger"*ngIf="useremail.errors?.['pattern']">Please enter valid employee mail</small>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter employee number" name="uphone" class="form-control" [ngModel]="userData.uphone" #userphone="ngModel" required pattern="^[6-9][0-9]{9}" autocomplete="off">
+            <small class="text-danger" *ngIf="userphone.errors?.['required']&& userphone.touched">please enter phone number</small>
+            <small class="text-danger"*ngIf="userphone.errors?.['pattern']">Please enter valid phone number</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Employee Designation <small class="text-danger">Admin / Owner / Manager / Employee</small></span>
+            <!-- <span class="text text-success">Admin / Owner / Manager / Employee</span> -->
+            <input type="text" placeholder="Admin / Owner / Manager / Employee"name="cdesignation" class="form-control" [ngModel]="userData.cdesignation" required #userdesignation="ngModel" pattern="[a-zA-z ]*" autocomplete="off">
+            <small class="text-danger" *ngIf="userdesignation.errors?.['required']&& userdesignation.touched">please enter employee designation</small>
+            <small class="text-danger"*ngIf="userdesignation.errors?.['pattern']">Please enter designation</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Gender <small class="text-danger">Male / Female</small></span>
+            <input type="text" placeholder="Male / Female"name="cgender" class="form-control" [ngModel]="userData.cgender" required #usergender="ngModel" pattern="[a-zA-z ]*" autocomplete="off">
+            <small class="text-danger" *ngIf="usergender.errors?.['required']&& usergender.touched">please enter Company name</small>
+            <small class="text-danger"*ngIf="usergender.errors?.['pattern']">Please enter valid gender</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter employee password" name="upassword" class="form-control" [ngModel]="userData.upassword" #userpass="ngModel" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" autocomplete="off">
+            <small class="text-danger" *ngIf="userpass.errors?.['required']&& userpass.touched">please enter password</small>
+            <small class="text-danger"*ngIf="userpass.errors?.['pattern']">Please enter valid password</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Attainment Measure</span>
+            <!-- <span class="text text-success">Admin / Owner / Manager / Employee</span> -->
+            <input type="text" placeholder="Enter attainment measure"name="uattain" class="form-control" [ngModel]="userData.uattain" ngModel disabled #userattain="ngModel" pattern="[0-9][0-9]" autocomplete="off">
+            <small class="text-danger" *ngIf="userattain.errors?.['required']&& userattain.touched">please enter attainment measure</small>
+            <small class="text-danger"*ngIf="userattain.errors?.['pattern']">Please enter valid attainment</small>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Salary</span>
+            <input type="text" placeholder="Enter employee salary" name="usalary" class="form-control" [ngModel]="userData.usalary" #usersal="ngModel" required pattern="^[0-9][0-9]*.[0-9][0-9]" autocomplete="off">
+            <small class="text-danger" *ngIf="usersal.errors?.['required']&& usersal.touched">please enter salary</small>
+            <small class="text-danger"*ngIf="usersal.errors?.['pattern']">Please enter valid salary</small>
+          </div>
+
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Update"  [disabled]="f.invalid && !userIdAvailable">
+          <!-- <input type="submit" value="Update"  [disabled]="f.invalid"> -->
+        </div>
+      </form>
+    </div>
+  </div>

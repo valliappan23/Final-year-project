@@ -1,0 +1,158 @@
+
+<app-menu></app-menu>
+
+<form>
+    <!-- <p>THIS IS DASHBOARD</p> -->
+    <section style="background-color: #eee;">
+        <div class="container py-md-2">
+          
+          <!-- <div class="row">
+            <div class="col">
+              <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">User</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                </ol>
+              </nav>
+            </div>
+          </div> -->
+      
+          <div class="row">
+            <div class="col-lg-4 details">
+              <div class="card mb-4 m1">
+                <div class="card-body text-center">
+                  <img src="./../../assets/pictures/s1.jpg" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3"id="name">{{shopdata.sname}}</h5>
+                  <p class="text-muted mb-1"id="designation">{{shopdata.sid}}</p>
+                  <p class="text-muted mb-4"id="branch"></p>
+                 
+                  <!-- <div class="btn btn-success float-right" >WORK INFO</div> -->
+                  
+                  <div class="d-flex justify-content-center mb-2">
+                    <!-- <button type="button" class="btn btn-primary">Follow</button> -->
+                    <!-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-4 mb-lg-0 pull-right m1">
+                <div class="card-body p-0 ">
+                  <ul class="list-group list-group-flush rounded-3">
+                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-facebook fa-lg text-primary"></i>
+                      <p class="mb-0">facbook id</p>
+                    </li> -->
+                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                      <p class="mb-0">Instagram id</p>
+                    </li> -->
+                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                      <p class="mb-0">git hub id</p>
+                    </li> -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fa-solid fa-envelope fa-lg" style="color: rgb(191, 12, 226);"></i>
+                      {{shopdata.semail}}
+                    </li>
+                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-linkedin fa-lg" style="color: #1a45a3;"></i>
+                      <p class="mb-0">mdbootstrap</p>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card mb-4 m2">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"id="field">Store Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.sname}}</p>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"id="field">Store Key</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.sid}}</p>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"id="field">Ownership</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.sownership}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  
+                  <div class="row">
+                    <div class="col-sm-3 col-6">
+                      <p class="mb-0"id="field">Pan No</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.span}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3 col-6">
+                      <p class="mb-0"id="field">Address</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.saddr}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"id="field">Contact</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.sphone}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"id="field">Shop Type</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{shopdata.stype}}</p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+  
+                      <p class="mb-4"id="head"> Leave Status</p>
+                      <h3 style="font-size: 120%;color: rgb(0, 89, 255);">{{userdata.uleave}} / {{userdata.utleave}}</h3>
+  
+                      <p class="mb-1" style="font-size: 110%;color: black;">Available Leave</p>
+                      <div class="progress rounded" style="height: 5px;">
+                        <div class="progress-bar" role="progressbar" style="background-color: rgb(136, 255, 0);"[style.width]="userdata.uleave/userdata.utleave *100+'%'" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+    
+                    </div>
+                  </div>
+                </div>
+                
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>

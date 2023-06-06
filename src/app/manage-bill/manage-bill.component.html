@@ -1,0 +1,75 @@
+<app-menu></app-menu>
+
+<h2>Sales Management</h2>
+<br>
+<!-- button -->
+
+<!-- this paragraph tag is for deleting meassage info -->
+<!-- <p>{{msg}}</p> -->
+
+
+<div class="button_container">
+    
+    <!-- <a  routerLink="/product"><button class="btn" id="btn"><span> <i class="fas fa-truck-loading"></i> Add Product</span></button></a>&nbsp; -->
+
+    <!-- <a  routerLink="/addAttendance"><button class="btn" id="btn1" ><span>Add Attandance</span></button></a>&nbsp;
+
+    <a  routerLink="/ManageAttendance"><button class="btn" id="btn2"><span>Manage Attandance</span></button></a>&nbsp; -->
+    
+</div>
+
+
+  
+  
+
+<!-- search bar -->
+
+<!-- <div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search"  #search (keyup)="searchbill(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div> -->
+
+
+<!-- Table -->
+<div class="message"></div>
+    
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>S.No</h1></th>
+                <th><h1>Bill No</h1></th>
+                <th><h1>Date Of Purchase</h1></th>
+                <th><h1>Store Name</h1></th>
+                <th><h1>Customer Name</h1></th>
+                <th><h1>Contact Number</h1></th>
+                <th><h1>Purchase Cost</h1></th>
+                
+                <th><h1>Operation</h1></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bills; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{b.billNo}}</td>
+                <td id="name">{{b.date}}/{{b.month+1}}/{{b.year}}</td>
+                <td>{{b.company}}</td>
+                <td>{{b.customer}}</td>
+                <td>{{b.phone}}</td>
+                <td>{{b.cost}}</td>
+                <td>
+                    <!-- <a routerLink="/edit_product/{{prod._id}}"><button class="btn"><i class="fa-solid fa-pen blue"></i></button></a>&nbsp; -->
+                    <button class="btn" (click)="bill(b.billNo)"><i class="fa-solid fa-trash text-danger"></i></button>&nbsp;
+                    <a  routerLink="/sbills/{{b.billNo}}" target="_blank"><button class="btn"><i class="fa-solid fa-circle-info text-warning"></i></button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p  class="text-center text-danger" id="record" *ngIf="bills.length==0">No Records Found</p>
+    <br>
+

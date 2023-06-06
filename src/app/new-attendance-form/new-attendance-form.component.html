@@ -1,0 +1,93 @@
+
+<app-menu></app-menu>
+
+<div class="container">
+    <div class="title">New Attendance User</div>
+    <div class="content">
+      <form action="#" #f="ngForm" (submit)="DoRegister(f)">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required name="uname" class="form-control" ngModel pattern="[a-zA-z]*.[a-zA-z]*" #username="ngModel" autocomplete="off">
+            <small class="text-danger" *ngIf="username.errors?.['required']&& username.touched">please enter employee name</small>
+            <small class="text-danger"*ngIf="username.errors?.['pattern']">Please enter valid name</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Employee Id</span>
+            <input type="text" placeholder="Enter Employee Id" required name="uid" class="form-control" ngModel #userid="ngModel"autocomplete="off">
+            <small class="text-danger" *ngIf="userid.errors?.['required']&& userid.touched">please enter employee id</small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Salary</span>
+            <input type="text" placeholder="Enter salary" required name="usalary" class="form-control" ngModel #usersalary="ngModel" pattern="^[1-9][0-9]*.[0-9][0-9]"autocomplete="off">
+            <small class="text-danger"*ngIf="usersalary.errors?.['required'] && usersalary.touched">Please enter salary</small>
+            <small class="text-danger"*ngIf="usersalary.errors?.['pattern']">Please enter valid Salary EXAMPLE: 500.00 </small>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Attendance</span>
+            <input type="text" placeholder="Enter attendance" required name="uattendance" class="form-control" ngModel pattern="^([0]*)$" maxlength="2" minlength="2" #useratten="ngModel"autocomplete="off">
+            <small class="text-danger"*ngIf="useratten.errors?.['required'] && useratten.touched">Please enter present days</small>
+        <small class="text-danger"*ngIf="useratten.errors?.['pattern']">Please enter 00</small>
+        <small class="text-danger"*ngIf="useratten.errors?.['maxlength']">Please enter valid  number of days 00</small>
+        <small class="text-danger"*ngIf="useratten.errors?.['minlength']">Please enter valid  number of days 00</small>
+
+          </div>
+          
+
+        </div>
+
+
+        <div class="employee-details">
+          <input type="radio" name="employee" id="dot-1a" class="form-control" >
+          <input type="radio" name="employee" id="dot-2a" class="form-control" >
+          <input type="radio" name="employee" id="dot-3a" class="form-control" >
+          <span class="emplpoyee-title">Employee</span>
+          <div class="category">
+            <label for="dot-1a">
+            <span class="dot one"></span>
+            <span class="employee">Owner</span>
+          </label>
+          <label for="dot-2a">
+            <span class="dot two"></span>
+            <span class="employee">Manager</span>
+          </label>
+          <label for="dot-3a">
+            <span class="dot three"></span>
+            <span class="employee">Employee</span>
+            </label>
+          </div>
+        </div>
+
+
+        
+
+
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" class="form-control" >
+          <input type="radio" name="gender" id="dot-2" class="form-control" >
+          <input type="radio" name="gender" id="dot-3" class="form-control" >
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register" [disabled]="f.invalid">
+        </div>
+      </form>
+    </div>
+  </div>

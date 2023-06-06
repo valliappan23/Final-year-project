@@ -1,0 +1,78 @@
+<app-menu></app-menu>
+
+<h2>Find Product</h2>
+<br>
+<!-- button -->
+
+<!-- this paragraph tag is for deleting meassage info -->
+<p>{{msg}}</p>
+
+
+<!-- <div class="button_container">
+    
+    <a  routerLink="/add"><button class="btn" id="btn"><span>Add Employee</span></button></a>&nbsp;
+
+    <a  routerLink="/addAttendance"><button class="btn" id="btn1" ><span>Add Attandance</span></button></a>&nbsp;
+
+    <a  routerLink="/ManageAttendance"><button class="btn" id="btn2"><span>Manage Attandance</span></button></a>&nbsp;
+    
+</div> -->
+
+
+  
+  
+
+<!-- search bar -->
+
+<div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search"  #search (keyup)="searchProduct(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div>
+
+
+<!-- Table -->
+    
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>Id</h1></th>
+                <th><h1>Name</h1></th>
+                <th><h1>Date Of Purchase</h1></th>
+                <!-- <th><h1>Supplier Mail Id</h1></th> -->
+                <th><h1>Supplier</h1></th>
+                <!-- <th><h1>Cost Price <br class="text-center">Per qty</h1></th> -->
+                <th><h1>Selling Price <br class="text-center">Per qty</h1></th>
+                <th><h1>Quantity Available</h1></th>
+                <th><h1>Quantity Request</h1></th>
+                <th><h1>Operation</h1></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of products; index as i">
+                <td>{{prod.pid}} </td>
+                <td id="name">{{prod.pname}}</td>
+                <td>{{prod.pdob}}</td>
+                <!-- <td>valliappan23@gmail.com</td> -->
+                <td>{{prod.pc}}</td>
+                <!-- <td>{{prod.pprice}}</td> -->
+                <td>{{prod.pselling}}</td>
+                <td>{{prod.pqty}}</td>
+                <td class="form__group field"><input type="text" class="form__field" placeholder="Quantity" #qty></td>
+                <td>
+                    <a ><button class="btn"><i class="fas fa-comments text-primary" (click)="request(prod.pname,prod.pc,qty.value)"></i></button></a>&nbsp;
+                    <!-- <a><button class="btn"><i class="fa-solid fa-check text-success"></i></button></a> -->
+                    <!-- <button class="btn"><i class="fa-solid fa-trash text-danger"></i></button>&nbsp;
+                    <a ><button class="btn"><i class="fa-solid fa-circle-info text-warning"></i></button></a> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p  class="text-center text-danger" id="record" *ngIf="products.length==0">No Records Found</p>
+    <br>
+

@@ -1,0 +1,79 @@
+<app-menu></app-menu>
+
+
+<h2>User Management</h2>
+<br>
+<div class="message">{{msg}}</div>
+<!-- button -->
+
+<!-- this paragraph tag is for deleting meassage info -->
+<!-- <p>{{msg}}</p> -->
+
+
+<div class="button_container">
+    
+    <a  routerLink="/register" target="_blank"><button class="btn" id="btn"><span><i class="fa-solid fa-user"></i> Add user</span></button></a>&nbsp;
+
+    <!-- <a  routerLink="/addAttendance"><button class="btn" id="btn1" ><span>Add Attandance</span></button></a>&nbsp;
+
+    <a  routerLink="/ManageAttendance"><button class="btn" id="btn2"><span>Manage Attandance</span></button></a>&nbsp; -->
+    
+</div>
+
+
+  
+  
+
+<!-- search bar -->
+
+<!-- <div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search"  #search (keyup)="SearchUser(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div> -->
+
+
+<!-- Table -->
+
+    
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>ID</h1></th>
+                <th><h1>Name</h1></th>
+                <!-- <th><h1>Last Name</h1></th> -->
+                <th><h1>Company</h1></th>
+                <th><h1>Address</h1></th>
+                <th><h1>Designation</h1></th>
+                <th><h1>Salary</h1></th>
+                <th><h1>Email</h1></th>
+                <th><h1>Phone Number</h1></th>
+                <th><h1>Operation</h1></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let user of users; index as i;">
+                <td>{{user.uid}}</td>
+                <td id="name">{{user.uname}}</td>
+                <td>{{user.cname}}</td>
+                <td>{{user.uaddr}}</td>
+                <td>{{user.cdesignation}}</td>
+                <td>{{user.usalary}}</td>
+                <td>{{user.uemail}}</td>
+                <td>{{user.uphone}}</td>
+                <td>
+                    <a routerLink="/edit/{{user._id}}" target="_blank"><button class="btn"><i class="fa-solid fa-pen blue" target="_blank"></i></button></a>&nbsp;
+                    <button class="btn" (click)="deleteUser(user._id)"><i class="fa-solid fa-trash text-danger"></i></button>&nbsp;
+                    <a routerLink="/user_info/{{user._id}}" target="_blank"><button class="btn"><i class="fa-solid fa-circle-info text-warning"></i></button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p  class="text-center text-danger" id="record" *ngIf="users.length==0">No Records Found</p>
+    <br>
+

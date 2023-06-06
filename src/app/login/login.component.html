@@ -1,0 +1,40 @@
+<div class="container-fluid banner">
+
+    <div class="row">
+        <div class="col-md-12"></div>
+        <nav class="navbar">
+        <div class="navbar-brand">
+            
+                <img src="./../../assets/pictures/logo1.png" alt=""width="70"
+                height="70" >
+        Retail Relier
+        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">LOGIN</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="/register">register</a>
+            </li> -->
+        </ul>
+        </nav>
+    </div>
+    <div class="f">
+        <form action=""  #f="ngForm" (submit)="DoLogin(f)">
+            <h3>Login</h3>
+            <label for="" class="l1">User Id</label>
+            <input type="text" placeholder="Enter User Id" name="uid" ngModel autocomplete="off">
+            <label for="" class="l2">Password</label>
+            <input type="Password" placeholder="Enter password" name="upassword" ngModel>
+            <button type="submit"><i class="fa-sharp fa-solid fa-key"></i> Log In</button>
+            <p class="text-danger text-center a">{{msg}}</p>
+        </form>
+        
+    </div>
+</div>

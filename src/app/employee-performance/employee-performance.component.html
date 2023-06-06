@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+<h2>Attainment Control</h2>
+
+
+<!-- <div class="button_container">
+
+    <button class="btn" id="btn2"><a href="\management">Management</a></button>&nbsp;
+    
+</div> -->
+
+
+<!-- search bar -->
+
+<!-- <div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search" #search (keyup)="searchattendance(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div> -->
+
+<!-- Table -->
+    
+<table class="container">
+    <thead>
+        <tr>
+            <th><h1>ID</h1></th>
+            <th><h1>Name</h1></th>
+            <!-- <th><h1>Last Name</h1></th> -->
+            <th><h1>Address</h1></th>
+            <th><h1>Company</h1></th>
+            <th><h1>Designation</h1></th>
+            <th><h1>Salary</h1></th>
+            <th><h1>Work Days</h1></th>
+            <th><h1>Operation</h1></th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; index as i;">
+            <td>{{user.uid}}</td>
+            <td id="name">{{user.uname}}</td>
+            <!-- <td>{{i.ulastname}}</td> -->
+            <td>{{user.uaddr}}</td>
+            <td>{{user.cname}}</td>
+            <td>{{user.cdesignation}}</td>
+            <td>{{user.usalary}}</td>
+            <td id="tp">{{user.uattain}}</td>
+            <td>
+                <button class="btn" (click)="addattendance(user.uattain,user.uid)"><i class="fa-solid fa-check text-success"></i></button>
+                <button class="btn"(click)="resetattendance(user.uattain,user.uid)"><i class="fa-solid fa-rotate text-primary"></i></button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
+<p  class="text-center text-danger" id="record" *ngIf="users.length==0">No Records Found</p>
+<br>

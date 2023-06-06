@@ -1,0 +1,78 @@
+<app-menu></app-menu>
+
+
+<h2>Store Management</h2>
+<br>
+<!-- button -->
+
+<!-- this paragraph tag is for deleting meassage info -->
+<!-- <p>{{msg}}</p> -->
+
+
+<div class="button_container">
+    
+    <a  routerLink="/add_store" *ngIf="userSer.isManager() && userSer.isOwner()" target="_blank"><button class="btn" id="btn"><span><i class="fas fa-handshake"></i> Add Store</span></button></a>&nbsp;
+
+    <!-- <a  routerLink="/addAttendance"><button class="btn" id="btn1" ><span>Add Attandance</span></button></a>&nbsp;
+
+    <a  routerLink="/ManageAttendance"><button class="btn" id="btn2"><span>Manage Attandance</span></button></a>&nbsp; -->
+    
+</div>
+
+
+  
+  
+
+<!-- search bar -->
+
+<!-- <div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search"  #search (keyup)="SearchStore(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div> -->
+
+
+<!-- Table -->
+<div class="message">{{msg}}</div>
+    
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>ID</h1></th>
+                <th><h1>Name</h1></th>
+                <!-- <th><h1>Last Name</h1></th> -->
+                <th><h1>Address</h1></th>
+                <th><h1>Phone Number</h1></th>
+                <th><h1>Shop Type</h1></th>
+                <th><h1>Shop Ownership</h1></th>
+                <th><h1>Email</h1></th>
+                <th><h1>Pan Number</h1></th>
+                <th><h1>Operation</h1></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let store of stores; index as i;">
+                <td>{{store.sid}}</td>
+                <td id="name">{{store.sname}}</td>
+                <td>{{store.saddr}}</td>
+                <td>{{store.sphone}}</td>
+                <td>{{store.stype}}</td>
+                <td>{{store.sownership}}</td>
+                <td>{{store.semail}}</td>
+                <td>{{store.span}}</td>
+                <td>
+                    <a routerLink="/edit_shop/{{store._id}}" *ngIf="userSer.isOwner()" target="_blank"><button class="btn"><i class="fa-solid fa-pen blue"></i></button></a>&nbsp;
+                    <button class="btn" (click)="deleteStore(store._id)" *ngIf="userSer.isOwner()"><i class="fa-solid fa-trash text-danger"></i></button>&nbsp;
+                    <a  routerLink="/store_info/{{store._id}}" target="_blank"><button class="btn"><i class="fa-solid fa-circle-info text-primary"></i></button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p  class="text-center text-danger" id="record" *ngIf="stores.length==0">No Records Found</p>
+    <br>
+

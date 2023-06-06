@@ -1,0 +1,77 @@
+<app-menu></app-menu>
+
+<h2>Order Status</h2>
+<br>
+<!-- button -->
+
+<!-- this paragraph tag is for deleting meassage info -->
+<!-- <p>{{msg}}</p> -->
+
+
+<div class="button_container">
+    
+    <!-- <a  routerLink="/product"><button class="btn" id="btn"><span> <i class="fas fa-truck-loading"></i> Add Product</span></button></a>&nbsp; -->
+
+    <!-- <a  routerLink="/addAttendance"><button class="btn" id="btn1" ><span>Add Attandance</span></button></a>&nbsp;
+
+    <a  routerLink="/ManageAttendance"><button class="btn" id="btn2"><span>Manage Attandance</span></button></a>&nbsp; -->
+    
+</div>
+
+
+  
+  
+
+<!-- search bar -->
+
+<!-- <div class="searchBox">
+
+    <input class="searchInput"type="text" name="" placeholder="Search"  #search (keyup)="SearchProduct(search.value)">
+    <button class="searchButton" href="#">
+        <i class="fa-solid fa-magnifying-glass">
+            
+        </i>
+    </button>
+</div> -->
+
+
+<!-- Table -->
+<div class="message"></div>
+    
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>Id</h1></th>
+                <th><h1>Product Name</h1></th>
+                <th><h1>Product Quantity</h1></th>
+                <th><h1>Requested Company</h1></th>
+                <th><h1>Date Of Purchase</h1></th>
+                <th><h1>Status</h1></th>
+                <th><h1>Sanctioned By</h1></th>
+                <!-- <th><h1>Selling Price <br class="text-center">Per qty</h1></th>
+                <th><h1>Quantity</h1></th> -->
+                <!-- <th><h1>Operation</h1></th> -->
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of products; index as i;">
+                <td>{{i+1}}</td>
+                <td id="name">{{prod.pname}}</td>
+                <td>{{prod.pqty}}</td>
+                <td>{{prod.roffice}}</td>
+                <td>{{prod.date}}/{{prod.month+1}}/{{prod.year}}</td>
+                <td style="text-transform : uppercase">{{prod.message}}</td>
+                <td>{{prod.pdesignation}}</td>
+                
+                <!-- <td>
+                    <a routerLink="/edit_product/{{prod._id}}"><button class="btn"><i class="fa-solid fa-pen blue"></i></button></a>&nbsp;
+                    <button class="btn" (click)="deleteProduct(prod._id)"><i class="fa-solid fa-trash text-danger"></i></button>&nbsp;
+                    <a routerLink="/product_info/{{prod._id}}"><button class="btn"><i class="fa-solid fa-circle-info text-warning"></i></button></a>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+    <p  class="text-center text-danger" id="record" *ngIf="products.length==0">No Records Found</p>
+    <br>
+
